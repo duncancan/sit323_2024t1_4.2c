@@ -1,0 +1,16 @@
+{"level":"error","message":"Parameter n2 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n1 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n1 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n1 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n1 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n1 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is not a valid number","service":"calculator-service"}
+{"level":"error","message":"Invalid number 'a6' received for parameter n2.","service":"calculator-service"}
+{"level":"error","message":"Invalid number 'a6' received for parameter n2.","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is zero. Unable to divide by zero","service":"calculator-service"}
+{"level":"error","message":"Parameter n2 is zero. Unable to divide by zero","service":"calculator-service"}
+{"level":"error","message":"Invalid number 'sixteen' received for parameter n2.","service":"calculator-service"}
