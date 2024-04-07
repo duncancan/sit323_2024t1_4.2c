@@ -59,3 +59,15 @@
 {"level":"info","message":"Numbers 256 and 16 received for function mod.","service":"calculator-service"}
 {"level":"info","message":"Numbers 3.14159 and 2 received for function mod.","service":"calculator-service"}
 {"level":"error","message":"Invalid number 'pi' received for parameter n2 in function mod.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function mod.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function mod.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers  received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,12 received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,12 received for function subtract.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,12,6 received for function subtract.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,12,6 received for function subtract.","service":"calculator-service"}

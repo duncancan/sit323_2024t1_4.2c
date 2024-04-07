@@ -34,50 +34,93 @@ const logger = winston.createLogger({
 })
 
 // Calculator functions
-const add = (n1, n2) => {
-    return n1 + n2;
+const add = (nums) => {
+    return nums[0] + nums[1];
 }
-const subtract = (n1, n2) => {
-    return n1 - n2
+const subtract = (nums) => {
+    return nums[0] - nums[1];
 }
-const multiply = (n1, n2) => {
-    return n1 * n2;
+const multiply = (nums) => {
+    return nums[0] * nums[1];
 }
-const divide = (n1, n2) => {
-    return n1 / n2;
+const divide = (nums) => {
+    return nums[0] / nums[1];
 }
-const power = (n1, n2) => {
-    return n1 ** n2;
+const power = (nums) => {
+    return nums[0] ** nums[1];
 }
-const root = (n1, n2) => {
-    return n1 ** (1 / n2 );
+const root = (nums) => {
+    return nums[0] ** (1 / nums[1] );
 }
-const mod = (n1, n2) => {
-    return n1 % n2;
+const mod = (nums) => {
+    return nums[0] % nums[1];
 }
+
+// Helper function to create an ordinal number string from a number,
+// e.g. "1st" from 1, "2nd" from 2, "3rd" from 3, "4th" from 4, etc.
+// const numberSuffixer = (num) => {
+//     // Numbers between 4 and 20 all end in "th"
+//     if (num >= 4 && num <= 20) {
+//         console.log('Number >=4 & <= 20')
+//         return num + 'th';
+//     }
+//     // Otherwise, check the trailing digit
+//     switch (num % 10) {
+//         case 1:
+//             console.log("Case 1 reached");
+//             return num + "st";
+//         case 2:
+//             return num + "nd";
+//         case 3:
+//             return num + "rd"
+//         default:
+//             console.log("Default case reached");
+//             return num + "th";
+//     }
+// };
+
+// Helper function to validate URL parameters as floating point numbers.
+// Parses an arbitrary number of strings in an array
+// Returns an array of floats if all pass; if any fail, the first
+// one will be logged, and an error message will be returned as a 
+// string.
+// const validateParamsAsFloats = (params) => {
+//     let nums = [];
+//     let num;
+//     for (let i = 0; i < params.length; i++) {
+//         num = parseFloat(params[i]);
+//         if (isNaN(num)) {
+//             const nth = numberSuffixer(i + 1);
+//             return `Invalid number '${params[i]}' received for ${nth} parameter`;
+//         }
+//         nums.push(num);
+//     }
+//     return nums;
+// }
 
 // Generic calculator HTTP request and response function
 const calculate = (req, res, fun) => {
     try {
-        // Try to parse the user's provided parameters as numbers
-        const n1 = req.query.n1;
-        const n2 = req.query.n2;
-        const a = parseFloat(n1);
-        const b = parseFloat(n2);
+        // Iterate over parameters in query URL and try and cast each one to float
+        let nums = [];
+        let num;
+        console.log(req.query);
+        for (let propName in req.query) {
+            if (req.query.hasOwnProperty(propName)) {
+                console.log(req.query[propName]);
+                num = parseFloat(req.query[propName]);
+                if (isNaN(num)) {
+                    logger.error(`Invalid number '${req.query[propName]}' received for parameter '${propName}' in function ${fun.name}.`);
+                    throw new Error(`Invalid number '${req.query[propName]}' received for parameter '${propName}'.`);
+                };
+                nums.push(num);
+            }
 
-        // If they're not valid numbers, log and throw an error
-        if (isNaN(a)) {
-            logger.error(`Invalid number '${n1}' received for parameter n2 in function ${fun.name}.`);
-            throw new Error(`Invalid number '${n1}' received for parameter n1.`);
         }
-        if (isNaN(b)) {
-            logger.error(`Invalid number '${n2}' received for parameter n2 in function ${fun.name}.`);
-            throw new Error(`Invalid number '${n2}' received for parameter n2.`);
-        }
-        
+    
         // If the parameters are OK (i.e. no error was thrown), subtract n2 from n1 and return the result
-        logger.info(`Numbers ${a} and ${b} received for function ${fun.name}.`);
-        const result = fun(a, b);
+        logger.info(`Numbers ${nums.toString()} received for function ${fun.name}.`);
+        const result = fun(nums);
         res.status(200).json({ statuscode: 200, data: result });
 
     } catch (error) {
@@ -150,6 +193,11 @@ app.get("/mod", (req, res) => {
     calculate(req, res, mod);
 });
 
+// Showing how my validation function can handle more than two parameters, with a simple quadratic evaluator
+// Usage: http://localhost:3000/quad?a=2&b=1&c=6
+app.get("/quad", (req, res) => {
+    
+})
 
 app.listen(port, () => {
     console.log("App listening on port", port);
