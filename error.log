@@ -10,3 +10,4 @@
 {"level":"error","message":"Invalid number 'suzie' received for parameter n2 in function root.","service":"calculator-service"}
 {"level":"error","message":"Invalid number 'franky' received for parameter n2 in function root.","service":"calculator-service"}
 {"level":"error","message":"Invalid number 'pi' received for parameter n2 in function mod.","service":"calculator-service"}
+{"level":"error","message":"Negative n1 is not possible for even roots (i.e. even n2)","service":"calculator-service"}

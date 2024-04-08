@@ -55,6 +55,9 @@ const root = (nums) => {
 const mod = (nums) => {
     return nums[0] % nums[1];
 }
+const quad = (nums) => {
+    return nums[1] * nums[0]**2 + nums[2] * nums[0] + nums[3];
+}
 
 // Helper function to create an ordinal number string from a number,
 // e.g. "1st" from 1, "2nd" from 2, "3rd" from 3, "4th" from 4, etc.
@@ -93,7 +96,7 @@ const mod = (nums) => {
 //             const nth = numberSuffixer(i + 1);
 //             return `Invalid number '${params[i]}' received for ${nth} parameter`;
 //         }
-//         nums.push(num);
+//         nums.push(num);z
 //     }
 //     return nums;
 // }
@@ -194,9 +197,9 @@ app.get("/mod", (req, res) => {
 });
 
 // Showing how my validation function can handle more than two parameters, with a simple quadratic evaluator
-// Usage: http://localhost:3000/quad?a=2&b=1&c=6
+// Usage: http://localhost:3000/quad?x=5&a=2&b=1&c=6 for fn y = 2x^2 + x + 6 at x = 5
 app.get("/quad", (req, res) => {
-    
+    calculate(req, res, quad);
 })
 
 app.listen(port, () => {

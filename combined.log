@@ -71,3 +71,12 @@
 {"level":"info","message":"Numbers 5,12 received for function subtract.","service":"calculator-service"}
 {"level":"info","message":"Numbers 5,12,6 received for function subtract.","service":"calculator-service"}
 {"level":"info","message":"Numbers 5,12,6 received for function subtract.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,12 received for function add.","service":"calculator-service"}
+{"level":"info","message":"Numbers 4,4 received for function power.","service":"calculator-service"}
+{"level":"info","message":"Numbers 2,3 received for function power.","service":"calculator-service"}
+{"level":"info","message":"Numbers 8,3 received for function root.","service":"calculator-service"}
+{"level":"info","message":"Numbers 65536,4 received for function root.","service":"calculator-service"}
+{"level":"error","message":"Negative n1 is not possible for even roots (i.e. even n2)","service":"calculator-service"}
+{"level":"info","message":"Numbers -65536,4 received for function root.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,2 received for function mod.","service":"calculator-service"}
+{"level":"info","message":"Numbers 5,2,1,6 received for function quad.","service":"calculator-service"}
